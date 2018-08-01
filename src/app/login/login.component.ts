@@ -13,20 +13,22 @@ export class LoginComponent implements OnInit {
     {
       fname: new FormControl('',[Validators.required,Validators.pattern("^[A-Za-z]+$")]),
       lname: new FormControl('',[Validators.required,Validators.pattern("^[A-Za-z]+$")]),
-      gender: new FormControl('',[Validators.required,Validators.pattern("^[A-Za-z]+$")]),
+      gender: new FormControl('',[Validators.required,Validators.pattern("^(?:m|M|male|Male|f|F|female|Female)$")]),
       contact: new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern("^(([0-9]*)|(([0-9]*)\.([0-9]*)))$")]),
-      pass: new FormControl('',[Validators.required,Validators.pattern("(?=^.{8,16}$)((?=.*\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[^A-Za-z0-9])(?=.*[a-z])|(?=.*[^A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9]))^.*")]),
-      cpass: new FormControl('',[Validators.required,Validators.pattern("(?=^.{8,16}$)((?=.*\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[^A-Za-z0-9])(?=.*[a-z])|(?=.*[^A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9]))^.*")]),
+      email: new FormControl('',[Validators.required,Validators.email]),
+      pass: new FormControl('',[Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]),
+      cpass: new FormControl('',[Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]),
       empId: new FormControl('',[Validators.required,Validators.minLength(4),Validators.maxLength(4),Validators.pattern("^(([0-9]*)|(([0-9]*)|([0-9]*)))$")])
     }
   );
+  check:boolean;
   confirmme(){
     if(this.form.value.pass! == this.form.value.cpass)
     {
-      return false;
+      this.check=false;
     }
     else{
-      return true;
+      this.check=true;
     }
   }
 
@@ -47,6 +49,7 @@ export class LoginComponent implements OnInit {
       lname: fidata.lname,
       gender: fidata.gender,
       contact: fidata.contact,
+      email: fidata.email,
       pass: fidata.pass,
       cpass:fidata.cpass,
       empId: fidata.empId,

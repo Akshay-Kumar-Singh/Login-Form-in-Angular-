@@ -10,9 +10,11 @@ import { NextcomponentComponent } from './nextcomponent/nextcomponent.component'
 const route: Routes = [
   { path: 'nextpg',
    component: NextcomponentComponent },
-   {path: 'login',
+   {path: '',
     component: LoginComponent},
-
+    {path: 'login',
+    component: LoginComponent}
+  
 ]
 @NgModule({
   declarations: [

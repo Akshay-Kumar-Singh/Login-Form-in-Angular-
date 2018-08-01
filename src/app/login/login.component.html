@@ -1,47 +1,70 @@
 <h1 align="center">Login Form</h1>
-<form [formGroup]="form" align="center">
+<form [formGroup]="form" align="center" (ngSubmit)="nextpage()">
 
   <label>
     First Name
-    <input type="text" formControlName="fname" placeholder="Akshay"/>
-    <span *ngIf="!form.controls['fname'].valid">Plz Enter characters only</span>
-  </label><br /><br />
+    <input type="text" formControlName="fname" placeholder="Akshay" /><br/>
+    <span *ngIf="!form.controls['fname'].valid && (form.controls['fname'].dirty || form.controls['fname'].touched)">Plz Enter characters only</span>
+  </label>
+  <br />
+  <br />
 
   <label>
-      Last Name
-      <input type="text" formControlName="lname" placeholder="Rana"/>
-      <span *ngIf="!form.controls['lname'].valid">Plz Enter characters only</span>  
-    </label><br /><br />
+    Last Name
+    <input type="text" formControlName="lname" placeholder="Rana" /><br />
+    <span *ngIf="!form.controls['lname'].valid && (form.controls['lname'].dirty || form.controls['lname'].touched)">Plz Enter characters only</span>
+  </label>
+  <br />
+  <br />
 
   <label>
-      Gender
-      <input type="text" formControlName="gender" placeholder="Male/Female/Others"/>
-      <span *ngIf="!form.controls['gender'].valid">Plz Enter m/f or M/F only</span>
-    </label><br/><br />
+    Gender
+    <input type="text" formControlName="gender" placeholder="Male/Female/Others" />
+    <span *ngIf="!form.controls['gender'].valid && (form.controls['gender'].dirty || form.controls['gender'].touched)">Plz Enter m/f or M/F only</span>
+  </label>
+  <br/>
+  <br />
 
   <label>
-      Contact
-      <input type="text" formControlName="contact" placeholder="9999999999" maxlength="10" minlength="10" />
-      <span *ngIf="!form.controls['contact'].valid">Plz Enter digits only</span>
-    </label><br /><br />
+    Contact
+    <input type="text" formControlName="contact" placeholder="9999999999" maxlength="10" minlength="10" />
+    <span *ngIf="!form.controls['contact'].valid && (form.controls['contact'].dirty || form.controls['contact'].touched)">Plz Enter digits only</span>
+  </label>
+  <br />
+  <br />
 
   <label>
-      Password
-      <input type="password" formControlName="pass" placeholder="********" maxlength="16"/>
-      <span *ngIf="!form.controls['pass'].valid">This field takes atleast one special charcter,digit,uppercase and lowercase character only</span>
-    </label><br /><br />
+      E-Mial
+      <input type="text" formControlName="email" placeholder="abc@xyz.pqr" />
+      <span *ngIf="!form.controls['email'].valid && (form.controls['email'].dirty || form.controls['email'].touched)">Plz Enter valid emial format only</span>
+    </label>
+    <br />
+    <br />
 
   <label>
-      Confirm Password
-      <input type="password" formControlName="cpass" placeholder="********" maxlength="16" (keyup) = "confirmme()"/>
-      <span *ngIf="!form.controls['cpass'||confirmme()].valid">Plz enter the password same as in above cell</span>
-    </label><br /><br />
+    Password
+    <input type="password" formControlName="pass" placeholder="********" maxlength="16" /><br/>
+    <span *ngIf="!form.controls['pass'].valid && (form.controls['pass'].dirty || form.controls['pass'].touched)">This field takes atleast one special charcter,digit,uppercase and lowercase character only</span>
+  </label>
+  <br />
+  <br />
 
   <label>
-      Emp Id
-      <input type="text" formControlName="empId" placeholder="9999" maxlength="4"/>
-      <span *ngIf="!form.controls['empId'].valid">Plz enter only digits</span>
-    </label><br /><br />
+    Confirm Password
+    <input type="password" formControlName="cpass" placeholder="********" maxlength="16" (keyup)="confirmme()" /><br />
+    <span *ngIf="!form.controls['cpass'].valid && (form.controls['cpass'].dirty || form.controls['cpass'].touched)">This field takes atleast one special charcter,digit,uppercase and lowercase character only</span>
+  <br/><span *ngIf="check">Enter same as above</span>
+  </label>
+  <br />
+  <br />
 
-    <button (click) ="nextpage()" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
-    </form>
+  <label>
+    Emp Id
+    <input type="text" formControlName="empId" placeholder="9999" maxlength="4" />
+    <span *ngIf="!form.controls['empId'].valid && (form.controls['empId'].dirty || form.controls['empId'].touched)">Plz enter only digits</span>
+  </label>
+  <br />
+  <br />
+
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+</form>
