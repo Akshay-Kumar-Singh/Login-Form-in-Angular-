@@ -2,27 +2,14 @@
   nextcomponent works!
 </p>
 <table>
-  <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Gender</th>
-    <th>Contact</th>
-    <th>E-mail</th>
-    <th>Password</th>
-    <th>Confirm Password</th>
-    <th>Employee Id</th>
-  </tr>
-
-  <tr>
-    <td>{{fidata.fname}}</td>
-    <th>{{fidata.lname}}</th>
-    <th>{{fidata.gender}}</th>
-    <th>{{fidata.contact}}</th>
-    <th>{{fidata.email}}</th>
-    <th>{{fidata.pass}}</th>
-    <th>{{fidata.cpass}}</th>
-    <th>{{fidata.empId}}</th>
-  </tr>
+  <tr><td><b>First Name</b></td><td>{{fidata.fname}}</td></tr>
+    <tr><td><b>Last Name</b></td><td>{{fidata.lname}}</td></tr>
+      <tr><td><b>Gender</b></td><td>{{fidata.gender}}</td></tr>
+        <tr><td><b>Contact</b></td><td>{{fidata.contact}}</td></tr>
+          <tr><td><b>E-mail</b></td><td>{{fidata.email}}</td></tr>
+            <tr><td><b>Password</b></td><td>{{fidata.pass}}</td></tr>
+              <tr><td><b>Confirm Password</b></td><td>{{fidata.cpass}}</td></tr>
+                <tr><td><b>Employee Id</b></td><td>{{fidata.empId}}</td></tr>
   </table>
 
   <button (click) = "back()">

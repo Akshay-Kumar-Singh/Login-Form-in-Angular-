@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {StoreService} from '../store.service';
 
 @Component({
   selector: 'app-nextcomponent',
@@ -9,8 +10,9 @@ import {Router} from '@angular/router';
 export class NextcomponentComponent implements OnInit {
  
   fidata:Object
- constructor(private router: Router) {
-   this.fidata=JSON.parse(localStorage.getItem("fdata"));
+ constructor(private router: Router, private fmdata: StoreService) {
+   //this.fidata=JSON.parse(localStorage.getItem("fdata"));
+   this.fidata=this.fmdata.getData();
 
   }
   back()

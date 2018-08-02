@@ -3,7 +3,7 @@
 
   <label>
     First Name
-    <input type="text" formControlName="fname" placeholder="Akshay" /><br/>
+    <input type="text" formControlName="fname" placeholder="First Name" /><br/>
     <span *ngIf="!form.controls['fname'].valid && (form.controls['fname'].dirty || form.controls['fname'].touched)">Plz Enter characters only</span>
   </label>
   <br />
@@ -11,7 +11,7 @@
 
   <label>
     Last Name
-    <input type="text" formControlName="lname" placeholder="Rana" /><br />
+    <input type="text" formControlName="lname" placeholder="Last Name" /><br />
     <span *ngIf="!form.controls['lname'].valid && (form.controls['lname'].dirty || form.controls['lname'].touched)">Plz Enter characters only</span>
   </label>
   <br />
@@ -19,8 +19,8 @@
 
   <label>
     Gender
-    <input type="text" formControlName="gender" placeholder="Male/Female/Others" />
-    <span *ngIf="!form.controls['gender'].valid && (form.controls['gender'].dirty || form.controls['gender'].touched)">Plz Enter m/f or M/F only</span>
+    <input type="text" formControlName="gender" placeholder="Male/Female" />
+    <span *ngIf="!form.controls['gender'].valid && (form.controls['gender'].dirty || form.controls['gender'].touched)">Plz Enter m/f|M/F|Male/male|Female/female only</span>
   </label>
   <br/>
   <br />
